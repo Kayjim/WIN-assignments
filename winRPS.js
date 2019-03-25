@@ -1,3 +1,5 @@
+/* Switch Statements */
+
 var myVar = "b";
 
 switch(myVar) {
@@ -9,6 +11,8 @@ switch(myVar) {
     case "c":
         console.log("Bar");
 }
+
+/* Rock Paper Scissors */
 
 /*
 // Could do something like this, but eh.
