@@ -1,49 +1,69 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Eduardo G Personal Page</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-        <script src="main.js"></script>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Personal Page — Eduardo G</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     </head>
     <body>
-        <div id="header">
-            <h1>
-                This is the header.
-                <nav>
-                    <a href="https://google.com">Google</a>
-                    <a href="https://carolinafintechhub.com">Carolina Fintech Hub</a>
-                    <a href="https://www.w3schools.com/">W3 Schools</a>
-                </nav>
-            </h1>
+        <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="index.html" class="nav-item" id="home-link">Home</a>
+            <ul class="navbar-nav ml-auto" id="navbar-list">
+                <li class="nav-item active"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item active"><a href="rate.html" class="nav-link">Rate Us</a></li>
+                <li class="nav-item active"><a href="https://google.com" class="nav-link">Google</a></li>
+                <li class="nav-item active"><a href="https://carolinafintechhub.com" class="nav-link">Carolina Fintech Hub</a></li>
+                <li class="nav-item active"><a href="https://www.w3schools.com/" class="nav-link">W3 Schools</a></li>
+            </ul>
+        </nav>
+
+        <div class="jumbotron">
+            <h1 class="display-4">This is the header.</h1>
         </div>
 
-        <img src="https://carolinafintec.wpengine.com/wp-content/uploads/2017/09/fintech-hub-logo-1.jpg" />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 maintext">
+                    <strong>Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit. Maecenas convallis placerat
+                    lectus. Nam tincidunt aliquet quam eget sollicitudin. Maecenas posuere nibh eget elit mattis, id vulputate
+                    arcu gravida. Nam sapien orci, tincidunt imperdiet luctus sit amet, facilisis molestie felis. Donec justo
+                    arcu, faucibus in augue id, blandit auctor dui. Nam hendrerit nulla lectus, a blandit diam porta non. Ut
+                    gravida enim quam, dapibus egestas ante efficitur in. Etiam mollis lorem id sapien bibendum sagittis. Nunc
+                    sit amet mattis tellus. Quisque elit nisi, rutrum vel felis porttitor, laoreet tempor turpis.
+                </div>
+                <div class="col-md-4 maintext">
+                    <em>Vestibulum ante ipsum primis</em> in faucibus orci luctus et ultrices posuere cubilia Curae;
+                    Suspendisse et diam id erat elementum pharetra non et dolor. Vestibulum dictum mi felis, vitae dignissim
+                    urna fermentum non. Ut efficitur ullamcorper felis ac sagittis. Aliquam ut enim at urna sollicitudin
+                    molestie eget vel libero. Praesent sagittis eu mauris vel finibus. Class aptent taciti sociosqu ad litora
+                    torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et
+                    netus et malesuada fames ac turpis egestas.
+                </div>
+                <div class="col-md-4">
+                    <img src="https://carolinafintec.wpengine.com/wp-content/uploads/2017/09/fintech-hub-logo-1.jpg" />
+                </div>
+            </div>
+        </div>
         
-        <p class="maintext">
-            <strong>Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit. Maecenas convallis placerat
-            lectus. Nam tincidunt aliquet quam eget sollicitudin. Maecenas posuere nibh eget elit mattis, id vulputate
-            arcu gravida. Nam sapien orci, tincidunt imperdiet luctus sit amet, facilisis molestie felis. Donec justo
-            arcu, faucibus in augue id, blandit auctor dui. Nam hendrerit nulla lectus, a blandit diam porta non. Ut
-            gravida enim quam, dapibus egestas ante efficitur in. Etiam mollis lorem id sapien bibendum sagittis. Nunc
-            sit amet mattis tellus. Quisque elit nisi, rutrum vel felis porttitor, laoreet tempor turpis.
-        </p>
-        <p class="maintext">
-            <em>Vestibulum ante ipsum primis</em> in faucibus orci luctus et ultrices posuere cubilia Curae;
-            Suspendisse et diam id erat elementum pharetra non et dolor. Vestibulum dictum mi felis, vitae dignissim
-            urna fermentum non. Ut efficitur ullamcorper felis ac sagittis. Aliquam ut enim at urna sollicitudin
-            molestie eget vel libero. Praesent sagittis eu mauris vel finibus. Class aptent taciti sociosqu ad litora
-            torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et
-            netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos.
-        </p>
-
-        <footer>
-            <hr />
-            <h5>This is the footer.</h5>
-            <div id="spin">Hover</div>
+        <footer class="fixed-bottom navbar navbar-expand-lg">
+            <h5 class="mr-auto">This is the footer.</h5>
+            <ul class="navbar-nav ml-auto mr-auto" id="footer-navbar-list">
+                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item active"><a href="rate.html" class="nav-link">Rate Us</a></li>
+                <li class="nav-item active"><a href="https://google.com" class="nav-link">Google</a></li>
+                <li class="nav-item active"><a href="https://carolinafintechhub.com" class="nav-link">Carolina Fintech Hub</a></li>
+                <li class="nav-item active"><a href="https://www.w3schools.com/" class="nav-link">W3 Schools</a></li>
+            </ul>
+            <button id="spin" class="ml-auto">Click</button>
         </footer>
+
+        <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

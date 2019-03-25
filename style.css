@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto');
+
+body {
+    background-color: lightgoldenrodyellow;
+    margin: 0; /* Reset margins in body. */
+}
+
+#home-link {
+    color: white;
+}
+
+.jumbotron {
+    font-variant: small-caps;
+    padding-top: 2rem;
+    padding-bottom: 2rem; /* Bootstrap added too much padding. */
+    background-color: lightgoldenrodyellow; /* Same background as the page instead of Bootstrap's grey. */
+    font-family: Oswald, sans-serif;
+    text-shadow: 2px 2px chartreuse;
+}
+
+.maintext {
+    color: darkred;
+    font-family: Roboto, sans-serif;
+}
+
+footer {
+    background-color: lightgoldenrodyellow;
+}
+
+footer > h5 {
+    font-family: Oswald, sans-serif;
+}
+
+#footer-navbar-list {
+    font-size: 0.75rem;
+}
+
+footer a:hover {
+    color: lightblue;
+    text-decoration: underline !important;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(359deg); }
+}
+
+#spin {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    color: white;
+    background-color: green;
+    text-align: center;
+    vertical-align: middle;
+    /* transition: transform 500s; */
+    animation: spin 5s linear infinite;
+    line-height: 50px;
+    box-sizing: initial; /* Bootstrap's border-box sizing messes things up. */
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+#spin:active {
+    background-color: lightgreen;
+}

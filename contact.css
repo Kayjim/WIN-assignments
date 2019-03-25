@@ -1,0 +1,16 @@
+.textbox-label {
+    width: 70px;
+}
+
+#comment {
+    width: 100%;
+    height: 200px;
+}
+
+#agree-label {
+    font-size: small;
+}
+
+input:invalid {
+    border: 2px inset tomato;
+}

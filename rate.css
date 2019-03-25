@@ -1,0 +1,35 @@
+#ratefield {
+    border-radius: 5px;
+    border-color: lightgrey;
+}
+
+legend {
+    font-size: 25px;
+}
+
+.starcolor {
+    color: gold;
+    font-size: 50px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+/* Yes, this is horrible, but it works. */
+#stars0:checked ~ label, #stars0:checked ~ label label,
+#stars1:checked ~ label label,
+#stars2:checked ~ label > label label,
+#stars3:checked ~ label > label > label label,
+#stars4:checked ~ label > label > label > label label {
+    color: goldenrod;
+}
+
+button[type="submit"] {
+    font-weight: bold;
+    color: grey;
+    background-color: gold;
+    border: none;
+    width: 260px;
+    height: 40px;
+}
