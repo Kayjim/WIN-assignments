@@ -22,36 +22,66 @@ var players = {
 }
 */
 
-var p1name = "Alice"
-var p1score = 0
-var p2name = "Bob"
-var p2score = 0
+var hands = ["rock", "paper", "scissors"];
+var getHand = () => hands[parseInt(Math.random()*10)%3];
 
-var weapons = ["rock", "paper", "scissors"];
+var player1 = {
+    name: "Alice",
+    getHand: getHand,
+    curHand: null,
+    wins: 0
+}
 
+var player2 = {
+    name: "Bob",
+    getHand: getHand,
+    curHand: null,
+    wins: 0
+}
 
-while(p1score <  3 && p2score < 3) {
-    var weapon1 = Math.floor(Math.random() * weapons.length);
-    var weapon2 = Math.floor(Math.random() * weapons.length);
-    console.log(`${p1name}: ${weapons[weapon1]}`);
-    console.log(`${p2name}: ${weapons[weapon2]}`);
+function playRound(p1, p2) {
+    p1.curHand = p1.getHand();
+    p2.curHand = p2.getHand();
 
-    if((weapon1 + 1) % 3 == weapon2) {
-        p2score++;
-        console.log(`${p2name} wins this round.`);
-    } else if((weapon2 + 1) % 3 == weapon1) {
-        p1score++;
-        console.log(`${p1name} wins this round.`);
+    console.log(`${p1.name}: ${p1.curHand}`);
+    console.log(`${p2.name}: ${p2.curHand}`);
+
+    if((hands.indexOf(p1.curHand) + 1) % 3 == hands.indexOf(p2.curHand)) {
+        //p2.wins++;
+        console.log(`${p2.name} wins this round.`);
+        return p2;
+    } else if((hands.indexOf(p2.curHand) + 1) % 3 == hands.indexOf(p1.curHand)) {
+        //p1.wins++;
+        console.log(`${p1.name} wins this round.`);
+        return p1;
     } else {
         console.log("Tie!");
+        return null;
     }
 }
 
-if(p1score == 3) {
-    console.log(`${p1name} wins! ${p2name} won ${p2score} rounds.`);
-} else {
-    console.log(`${p2name} wins! ${p1name} won ${p1score} rounds.`);
+function playGame(player1, player2, playUntil) {
+    while(player1.wins < playUntil && player2.wins < playUntil) {
+        var roundWinner = playRound(player1, player2);
+        if(roundWinner != null) roundWinner.wins++;
+    }
+
+    // The last value of roundWinner will necessarily be the game winner, which means we don't have to use an if.
+    return roundWinner;
+    /*
+    if(player1.wins == playUntil) {
+        console.log(`${player1.name} wins!`);
+        return player1;
+    } else {
+        console.log(`${player2.name} wins!`);
+        return player2;
+    }
+    */
 }
+
+console.log(playGame(player1, player2, 5).name, 'wins!');
+console.log(`${player1.name} won ${player1.wins} rounds.`);
+console.log(`${player2.name} won ${player2.wins} rounds.`);
 
 /* Pseudocode because this is a lot
 if w1 is 0:
