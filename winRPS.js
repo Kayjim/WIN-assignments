@@ -39,6 +39,20 @@ var player2 = {
     wins: 0
 }
 
+var player3 = {
+    name: "Charlie",
+    getHand: getHand,
+    curHand: null,
+    wins: 0
+}
+
+var player4 = {
+    name: "David",
+    getHand: getHand,
+    curHand: null,
+    wins: 0
+}
+
 function playRound(p1, p2) {
     p1.curHand = p1.getHand();
     p2.curHand = p2.getHand();
@@ -66,6 +80,8 @@ function playGame(player1, player2, playUntil) {
         if(roundWinner != null) roundWinner.wins++;
     }
 
+    player1.wins = 0
+    player2.wins = 0
     // The last value of roundWinner will necessarily be the game winner, which means we don't have to use an if.
     return roundWinner;
     /*
@@ -79,9 +95,15 @@ function playGame(player1, player2, playUntil) {
     */
 }
 
-console.log(playGame(player1, player2, 5).name, 'wins!');
-console.log(`${player1.name} won ${player1.wins} rounds.`);
-console.log(`${player2.name} won ${player2.wins} rounds.`);
+function playTournament(player1, player2, player3, player4, playUntil) {
+    return playGame(playGame(player1, player2, playUntil), playGame(player3, player4, playUntil), playUntil)
+}
+
+console.log(`${playTournament(player1, player2, player3, player4, 5).name} is the world champion`);
+
+// console.log(playGame(player1, player2, 5).name, 'wins!');
+// console.log(`${player1.name} won ${player1.wins} rounds.`);
+// console.log(`${player2.name} won ${player2.wins} rounds.`);
 
 /* Pseudocode because this is a lot
 if w1 is 0:
@@ -114,5 +136,42 @@ switch(arr[w1][w2]) {
         break;
     case "tie":
         console.log("Tie!")
+}
+*/
+
+// call with something like moves[p1.hand][p2.hand]
+
+/*
+var moves = {
+    rock: {
+        paper: {
+            winner: 2,
+            verb: "covers"
+        },
+        scissors: {
+            winner: 1,
+            verb: "crushes"
+        }
+    },
+    paper: {
+        rock: {
+            winner: 1,
+            verb: "covers"
+        },
+        scissors: {
+            winner: 2,
+            verb: "cuts"
+        }
+    },
+    scissors: {
+        rock: {
+            winner: 2,
+            verb: "crushes"
+        },
+        paper: {
+            winner: 1,
+            verb: "cuts"
+        }
+    }
 }
 */
