@@ -12,9 +12,7 @@ User.prototype = {
         return {address: '5678 2nd St', city: 'Charlotte', state: 'NC', zipcode: '28000'};
     },
     updateProfile(update) {
-        for(var key in update) {
-            this[key] = update[key];
-        }
+        Object.assign(this, update);
     }
 }
 
@@ -34,9 +32,7 @@ class User {
     }
 
     updateProfile(update) {
-        for(var key in update) {
-            this[key] = update[key];
-        }
+        Object.assign(this, update);
     }
 }
 */
