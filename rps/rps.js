@@ -24,6 +24,12 @@ var players = {
 
 var hands = ["rock", "paper", "scissors"];
 var getHand = () => hands[parseInt(Math.random()*10)%3];
+function getPlayerHand() {
+    while(true) {
+        var hand = prompt('rock, paper, or scissors?');
+        if(hands.indexOf(hand) != -1) return hand;
+    }
+}
 
 var player1 = {
     name: "Alice",
@@ -99,7 +105,33 @@ function playTournament(player1, player2, player3, player4, playUntil) {
     return playGame(playGame(player1, player2, playUntil), playGame(player3, player4, playUntil), playUntil)
 }
 
-console.log(`${playTournament(player1, player2, player3, player4, 5).name} is the world champion`);
+function playInteractive() {
+    var player1 = {
+        name: document.querySelector('#name').value || 'Player',
+        getHand: getPlayerHand, // prompt.bind(this, 'rock, paper, or scissors?'),
+        curHand: null,
+        wins: 0
+    }
+
+    var player2 = {
+        name: 'CPU',
+        getHand: getHand,
+        curHand: null,
+        wins: 0
+    }
+
+    var playUntil = document.querySelector('#wins').value;
+
+    document.querySelector('#winner').textContent = `${playGame(player1, player2, playUntil).name} wins!`;
+}
+
+var document = document || undefined;
+
+if(document != undefined) {
+    document.querySelectorAll('input').forEach(elm => elm.addEventListener('keyup', e => e.keyCode == 13 ? playInteractive() : null));
+} else {
+    console.log(`${playTournament(player1, player2, player3, player4, 5).name} is the world champion`);
+}
 
 // console.log(playGame(player1, player2, 5).name, 'wins!');
 // console.log(`${player1.name} won ${player1.wins} rounds.`);

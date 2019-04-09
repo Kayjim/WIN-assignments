@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Rock, Paper, Scissors</title>
+    </head>
+    <body>
+        <label for="name">Name: <input type="text" id="name" placeholder="Player" /></label><br /><br />
+        <label for="wins">Play Until <input type="number" id="wins" value="3" min="1" style="width: 3em;" /> Wins</label><br /><br />
+        <button id="play" onclick="playInteractive()">Play RPS</button>
+        <br />
+        <h1 id="winner"></h1>
+        <script src="../rps/rps.js"></script>
+    </body>
+</html>
