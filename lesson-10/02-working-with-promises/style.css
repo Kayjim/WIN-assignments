@@ -25,6 +25,8 @@
 
 .album-expando {
     width: 210px !important;
+    display: flex;
+    flex-direction: column;
 }
 
 .album-expando h4 {

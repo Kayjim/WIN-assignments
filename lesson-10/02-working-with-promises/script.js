@@ -65,25 +65,42 @@ async function login() {
                             <button class="album-nav-btn">&lt;</button>
                             <img src="${albums[id].photos[0].thumbnailUrl}" />
                             <button class="album-nav-btn">&gt;</button>
-                        </div>
+                        </div><br />
+                        <input type="text" placeholder="Filter by title, click an arrow to filter" />
                     `);
 
                     albums[id].index = 0;
 
                     $('.album-nav-btn').click(function(e) {
-                        var album = albums[$(e.target).parent().parent().siblings('button').data('album-id')];
+                        var target = $(e.target);
+                        var album = albums[target.parent().parent().siblings('button').data('album-id')];
                         var index = album.index
                         var len = album.photos.length;
-                        if($(e.target).text() == '<') {
-                            album.index = (len + index - 1) % len;
-                            var prev = album.photos[album.index];
-                            $(e.target).parent().siblings('h4').text(prev.title);
-                            $(e.target).next().attr('src', prev.thumbnailUrl);
+                        var filter = target.parent().siblings('input').val();
+                        if(target.text() == '<') {
+                            while(true) {
+                                album.index = (len + album.index - 1) % len;
+                                if(album.index == index) break;
+                                var prev = album.photos[album.index];
+                                
+                                if(filter == '' || next.title.indexOf(filter) != -1) {
+                                    target.parent().siblings('h4').text(prev.title);
+                                    target.next().attr('src', prev.thumbnailUrl);
+                                    break;
+                                }
+                            }
                         } else {
-                            album.index = (index + 1) % len;
-                            var next = album.photos[album.index];
-                            $(e.target).parent().siblings('h4').text(next.title);
-                            $(e.target).prev().attr('src', next.thumbnailUrl);
+                            while(true) {
+                                album.index = (album.index + 1) % len;
+                                if(album.index == index) break;
+                                var next = album.photos[album.index];
+                                
+                                if(filter == '' || next.title.indexOf(filter) != -1) {
+                                    target.parent().siblings('h4').text(next.title);
+                                    target.prev().attr('src', next.thumbnailUrl);
+                                    break;
+                                }
+                            }
                         }
                     });
                     
