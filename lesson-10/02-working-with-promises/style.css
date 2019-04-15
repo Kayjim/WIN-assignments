@@ -1,0 +1,49 @@
+#login {
+    font-size: 24px;
+}
+
+#user-info {
+    font-size: small;
+    color: grey;
+}
+
+.title {
+    margin: 5px;
+}
+
+.expando-btn, .album-expando-btn, .album-nav-btn {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.album-nav-btn {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.album-expando {
+    width: 210px !important;
+}
+
+.album-expando h4 {
+    margin: 0;
+}
+
+.album-expando div {
+    display: flex;
+    align-items: center;
+}
+
+.expando, .album-expando {
+    margin-top: 5px;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid grey;
+    padding: 10px;
+    width: 50%;
+}
+
+.hidden {
+    display: none;
+}

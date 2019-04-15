@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="style.css" />
+        <title>REST</title>
+    </head>
+    <body>
+        <div class="fixed-top">
+            <form>
+                <select id="requests">
+                    <option value="0">Get all posts</option>
+                    <option value="1">Get post with id of 10</option>
+                    <option value="2">Get the comments from post with id of 12</option>
+                    <option value="3">Get all the posts from user with id of 2</option>
+                    <option value="4">Create a new post and log the id generated for it by the server</option>
+                    <option value="5">Replace the post with id of 12 and render the responseJSON</option>
+                    <option value="6">Update the title of post with id of 12 and render responseJSON</option>
+                    <option value="7">Delete the post with id of 12 and render a success message</option>
+                    <option value="8" selected>Display a list of posts.</option>
+                </select>
+                <button>Submit</button>
+                <button type="button" onclick="window.scrollTo(0, 0)">Scroll to Top</button>
+            </form>
+        </div>
+        <span id="top"></span>
+        <div id="output"></div>
+        <!-- <ol id="posts">
+            <li class="post" data-post-id="1">
+                <h2 class="title">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</h2>
+                <button class="expando-btn">+</button> 
+                <span class="submitted">submitted by user 1</span> | 
+                <a class="comments-link" href="#" data-post-id="1">100 comments</a>
+                <blockquote class="expando hidden">
+                    quia et suscipit<br />
+                    suscipit recusandae consequuntur expedita et cum<br />
+                    reprehenderit molestiae ut ut quas totam<br />
+                    nostrum rerum est autem sunt rem eveniet architecto
+                </blockquote>
+                <blockquote class="comments">
+                    <h3>Comments</h3>
+                    <ul>
+                        <li class="comment">
+                            <h4>id labore ex et quam laborum &lt;Eliseo@gardner.biz&gt;</h4>
+                            <blockquote>
+                                    laudantium enim quasi est quidem magnam voluptate ipsam eos<br />
+                                    tempora quo necessitatibus<br />
+                                    dolor quam autem quasi<br />
+                                    reiciendis et nam sapiente accusantium
+                            </blockquote>
+                        </li>
+                        <li class="comment">
+                            <h4>id labore ex et quam laborum &lt;Eliseo@gardner.biz&gt;</h4>
+                            <blockquote>
+                                    laudantium enim quasi est quidem magnam voluptate ipsam eos<br />
+                                    tempora quo necessitatibus<br />
+                                    dolor quam autem quasi<br />
+                                    reiciendis et nam sapiente accusantium
+                            </blockquote>
+                        </li>
+                    </ul>
+                </blockquote>
+            </li>
+        </ol> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
