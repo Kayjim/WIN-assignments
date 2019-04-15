@@ -64,14 +64,13 @@ async function showPosts(posts) {
     });
 
     $('.comments-link').click(async function(e) {
-        console.log('click');
         var link = $(this);
         if(link.text() == 'show comments') {
             if(link.hasClass('unloaded')) {
                 link.siblings('.comments').append('<h3>Comments</h3>');
                 var list = $('<ul>');
 
-                await $.get(`http://jsonplaceholder.typicode.com/posts/${link.data('post-id')}/comments`, function(res) {
+                await $.get(`http://jsonplaceholder.typicode.com/comments?postId=${link.data('post-id')}`, function(res) {
                     for(var comment of res) {
                         list.append(`
                             <li class="comment">
@@ -84,12 +83,11 @@ async function showPosts(posts) {
                 link.siblings('.comments').append(list);
                 link.removeClass('unloaded');
             }
-            console.log('something');
             link.siblings('.comments').removeClass('hidden');
             link.text('hide comments');
         } else {
             link.siblings('.comments').addClass('hidden');
             link.text('show comments');
         }
-    })
+    });
 }

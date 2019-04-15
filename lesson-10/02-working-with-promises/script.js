@@ -19,8 +19,10 @@ async function login() {
                     posts.append($('<li>').html(`
                         <h3 class="title">${post.title}</h3>
                         <button class="expando-btn">+</button>
-                        <span>submitted by <b>${user.name}</b></span>
+                        <span>submitted by <b>${user.name}</b></span> | 
+                        <a class="comments-link unloaded" data-post-id="${post.id}">show comments</a>
                         <blockquote class="expando hidden">${post.body.replace('\\n', '<br />')}</blockquote>
+                        <blockquote class="comments hidden"></blockquote>
                     `));
                 }
             });
@@ -47,7 +49,42 @@ async function login() {
                 btn.text('-');
             } else {
                 btn.siblings('.expando').addClass('hidden');
+                if(btn.siblings('.comments-link').text() == 'hide comments') {
+                    btn.siblings('.comments-link').click();
+                }
                 btn.text('+');
+            }
+        });
+
+        $('.comments-link').click(async function(e) {
+            var link = $(this);
+            if(link.text() == 'show comments') {
+                if(link.siblings('.expando-btn').text() == '+') {
+                    link.siblings('.expando-btn').click(); 
+                }
+                if(link.hasClass('unloaded')) {
+                    link.siblings('.comments').append('<h3>Comments</h3>');
+                    var list = $('<ul>');
+    
+                    await fetch(`http://jsonplaceholder.typicode.com/comments?postId=${link.data('post-id')}`).then(res => res.json())
+                        .then(data => {
+                            for(var comment of data) {
+                                list.append(`
+                                    <li class="comment">
+                                        <h4>${comment.name} &lt;${comment.email}&gt;</h4>
+                                        <blockquote>${comment.body.replace('\\n', '<br />')}</blockquote>
+                                    </li>
+                                `);
+                            }
+                        });
+                    link.siblings('.comments').append(list);
+                    link.removeClass('unloaded');
+                }
+                link.siblings('.comments').removeClass('hidden');
+                link.text('hide comments');
+            } else {
+                link.siblings('.comments').addClass('hidden');
+                link.text('show comments');
             }
         });
 
@@ -56,8 +93,8 @@ async function login() {
             var id = btn.data('album-id');
             if(btn.text() == '+') {
                 if(btn.hasClass('unloaded')) {
-                    await fetch('http://jsonplaceholder.typicode.com/photos').then(res => res.json())
-                        .then(data => albums[id].photos = data.filter(photo => photo.albumId == id));
+                    await fetch(`http://jsonplaceholder.typicode.com/photos?albumId=${id}`).then(res => res.json())
+                        .then(data => albums[id].photos = data);
                     
                     btn.siblings('.album-expando').append(`
                         <h4>${albums[id].photos[0].title}</h4><br />
