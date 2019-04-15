@@ -1,0 +1,1 @@
+first().then(r => second(r).then(console.log));

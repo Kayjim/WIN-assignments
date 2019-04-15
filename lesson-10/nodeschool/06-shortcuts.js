@@ -1,0 +1,1 @@
+var promise = Promise.reject(new Error('REJECTED!')).catch(err => console.log(err.message));
