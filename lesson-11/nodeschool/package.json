@@ -1,0 +1,14 @@
+{
+  "name": "@eduardog3000/nodeschool",
+  "version": "1.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "eduardog3000",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+  },
+  "repository": "https://github.com/eduardog3000/WIN-assignments"
+}

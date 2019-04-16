@@ -1,0 +1,12 @@
+{
+  "name": "lesson-11/01",
+  "version": "1.0.0",
+  "description": "WIN Lesson 11: Exercise 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "author": "eduardog3000",
+  "license": "ISC"
+}
