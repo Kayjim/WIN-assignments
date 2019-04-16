@@ -40,7 +40,7 @@ async function login() {
                 }
             });
         
-        $('#output').append('<h2>Posts</h2>').append(posts).append('<hr><h2>Albums</h2>').append(albumsList);
+        $('#output').append('<h2>Posts</h2>').append(posts).append('<hr /><h2>Albums</h2>').append(albumsList);
 
         $('.expando-btn').click(function(e) {
             var btn = $(this);
@@ -156,4 +156,4 @@ async function login() {
     return false;
 }
 
-$('#username-input').keyup(e => e.keyCode == 13 ? $('#login button').click() : null);
+$('#username-input').keyup(e => e.keyCode == 13 ? login() : null);
